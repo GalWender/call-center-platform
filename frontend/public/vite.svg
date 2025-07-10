@@ -1,0 +1,12 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .background { fill: #6366F1; }
+    .icon { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+        .background { fill: #4F46E5; }
+        .icon { fill: #E0E7FF; }
+    }
+</style>
+<circle class="background" cx="128" cy="128" r="128"/>
+<path class="icon" d="M188 118C188 87.0721 162.928 62 132 62C101.072 62 76 87.0721 76 118V178C76 182.418 79.5817 186 84 186H100C104.418 186 108 182.418 108 178V118C108 104.745 118.745 94 132 94C145.255 94 156 104.745 156 118V178C156 182.418 159.582 186 164 186H180C184.418 186 188 182.418 188 178V118ZM108 194H84C79.5817 194 76 197.582 76 202V210C76 214.418 79.5817 218 84 218H92C96.4183 218 100 214.418 100 210V206H108V194Z"/>
+</svg>
