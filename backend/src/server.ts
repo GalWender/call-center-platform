@@ -9,6 +9,8 @@ import { fileURLToPath } from 'url';
 
 import suggestedTaskRoutes from './api/suggested-task/suggested-task.routes.js';
 import tagRoutes from './api/tag/tag.routes.js';
+import callRoutes from './api/call/call.routes.js';
+import taskRoutes from './api/task/task.routes.js';
 import { logger } from './services/logger.service.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -32,6 +34,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/api/tag', tagRoutes);
 app.use('/api/suggested-task', suggestedTaskRoutes);
+app.use('/api/task', taskRoutes);
+app.use('/api/call', callRoutes);
 
 app.get('/**', (req: Request, res: Response) => {
   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
