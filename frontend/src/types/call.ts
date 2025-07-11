@@ -1,4 +1,4 @@
-import type { Task } from './task.js';
+import type { NewTask, Task } from './task';
 
 export interface Call {
   _id?: string;
@@ -9,4 +9,8 @@ export interface Call {
   updatedAt?: string;
 }
 
-export type NewCall = Omit<Call, '_id' | 'createdAt' | 'updatedAt'>;
+export interface NewCall {
+  subject: string;
+  tagIds?: string[];
+  tasks?: NewTask[];
+}
