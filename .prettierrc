@@ -6,11 +6,6 @@
   "trailingComma": "es5",
   "arrowParens": "avoid",
   "endOfLine": "auto",
-  "importOrder": [
-    "^@call-center/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": false
 }

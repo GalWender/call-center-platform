@@ -4,8 +4,19 @@ export enum TaskStatus {
   COMPLETED = 'COMPLETED',
 }
 
+import { ObjectId } from 'mongodb';
+
 export interface Task {
-  _id?: string;
+  _id?: ObjectId;
+  title: string;
+  status: TaskStatus;
+  tagIds?: string[];
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface TaskDto {
+  _id: string;
   title: string;
   status: TaskStatus;
   tagIds?: string[];

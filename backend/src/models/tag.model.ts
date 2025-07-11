@@ -1,5 +1,14 @@
+import { ObjectId } from 'mongodb';
+
 export interface Tag {
-  _id?: string;
+  _id?: ObjectId;
+  name: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface TagDto {
+  _id: string;
   name: string;
   createdAt?: string;
   updatedAt?: string;

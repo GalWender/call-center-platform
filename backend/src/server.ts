@@ -1,14 +1,15 @@
+import 'dotenv/config';
+
 import cookieParser from 'cookie-parser';
 import cors, { CorsOptions } from 'cors';
-import { config } from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import { Server as HttpServer, createServer } from 'http';
 import { dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
+import suggestedTaskRoutes from './api/suggested-task/suggested-task.routes.js';
+import tagRoutes from './api/tag/tag.routes.js';
 import { logger } from './services/logger.service.js';
-
-config({ path: resolve(process.cwd(), '.env') });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -28,6 +29,9 @@ if (process.env.NODE_ENV === 'production') {
   };
   app.use(cors(corsOptions));
 }
+
+app.use('/api/tag', tagRoutes);
+app.use('/api/suggested-task', suggestedTaskRoutes);
 
 app.get('/**', (req: Request, res: Response) => {
   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
