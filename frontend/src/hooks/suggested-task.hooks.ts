@@ -5,8 +5,11 @@ import type { NewSuggestedTask, SuggestedTask } from '../types/suggestedTask';
 
 const KEY = ['suggestedTasks'];
 
-export const useSuggestedTasks = () =>
-  useQuery<SuggestedTask[]>({ queryKey: KEY, queryFn: suggestedTaskService.query });
+export const useSuggestedTasks = (tagIds?: string[]) =>
+  useQuery<SuggestedTask[]>({
+    queryKey: [...KEY, { tagIds: tagIds?.sort() }],
+    queryFn: () => suggestedTaskService.query({ tagIds }),
+  });
 
 export const useSuggestedTask = (id: string) =>
   useQuery<SuggestedTask>({

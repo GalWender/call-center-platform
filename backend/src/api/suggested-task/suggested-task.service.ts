@@ -11,12 +11,25 @@ import { mapId } from '../../utils/dto.util.js';
 
 const COLLECTION = 'suggested_task';
 
+export interface SuggestedTaskFilter {
+  tagIds?: string[];
+}
+
+export function buildCriteria(filter: SuggestedTaskFilter = {}): Record<string, unknown> {
+  const criteria: Record<string, unknown> = {};
+  if (filter.tagIds && filter.tagIds.length) {
+    criteria.tagIds = { $in: filter.tagIds };
+  }
+  return criteria;
+}
+
 const toDto = (doc: SuggestedTask): SuggestedTaskDto => mapId<SuggestedTask, SuggestedTaskDto>(doc);
 
-export async function query(): Promise<SuggestedTaskDto[]> {
+export async function query(filter: SuggestedTaskFilter = {}): Promise<SuggestedTaskDto[]> {
   try {
     const col: Collection<SuggestedTask> = await getCollection<SuggestedTask>(COLLECTION);
-    const docs = await col.find({}).toArray();
+    const criteria = buildCriteria(filter);
+    const docs = await col.find(criteria).toArray();
     return docs.map(toDto);
   } catch (err) {
     logger.error('Failed to query suggested tasks', err);

@@ -4,8 +4,13 @@ import { httpService } from './http.service';
 const BASE = 'suggested-task/';
 
 export const suggestedTaskService = {
-  query(): Promise<SuggestedTask[]> {
-    return httpService.get<SuggestedTask[]>(BASE);
+  query(filter: { tagIds?: string[] } = {}): Promise<SuggestedTask[]> {
+    const params = new URLSearchParams();
+    if (filter.tagIds?.length) {
+      params.set('tagIds', filter.tagIds.join(','));
+    }
+    const url = params.toString() ? `${BASE}?${params.toString()}` : BASE;
+    return httpService.get<SuggestedTask[]>(url);
   },
   getById(id: string): Promise<SuggestedTask> {
     return httpService.get<SuggestedTask>(`${BASE}${id}`);

@@ -6,7 +6,15 @@ import * as suggestedTaskService from './suggested-task.service.js';
 
 export async function getSuggestedTasks(req: Request, res: Response): Promise<void> {
   try {
-    const tasks = await suggestedTaskService.query();
+    const { tagIds } = req.query;
+    let filterTagIds: string[] | undefined;
+    if (typeof tagIds === 'string') {
+      filterTagIds = tagIds.split(',').filter(Boolean);
+    } else if (Array.isArray(tagIds)) {
+      filterTagIds = tagIds as string[];
+    }
+
+    const tasks = await suggestedTaskService.query({ tagIds: filterTagIds });
     res.json(tasks);
   } catch (err) {
     logger.error('GET /api/suggested-task failed', err);

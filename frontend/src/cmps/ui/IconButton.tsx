@@ -8,8 +8,9 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const IconButton = ({ icon, label, children, className = '', ...rest }: IconButtonProps) => {
   const ariaLabel = label || rest.title || icon;
+  const btnClass = `icon-button${className ? ` ${className}` : ''}`;
   return (
-    <button type="button" aria-label={ariaLabel} className={className} {...rest}>
+    <button type="button" aria-label={ariaLabel} className={btnClass} {...rest}>
       <span className="material-symbols-rounded" aria-hidden="true">
         {icon}
       </span>

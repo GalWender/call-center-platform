@@ -1,0 +1,108 @@
+.user-page {
+  display: flex;
+  height: calc(100vh - 49px);
+}
+
+.call-sidebar {
+  flex: 0 0 260px;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.call-sidebar .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.call-sidebar .header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.call-tags-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-block: var(--space-2);
+}
+
+.call-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.call-item {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.call-item:hover {
+  background: var(--color-border);
+}
+
+.call-item.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.call-outlet {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.call-details-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+}
+
+.empty-call-prompt {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-create-btn {
+  font-size: 1.125rem;
+  gap: 0.5rem;
+}
+
+.task-panels {
+  display: flex;
+  gap: var(--space-3);
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-block: var(--space-3);
+  flex: 1;
+  min-height: 0;
+}
+
+.task-panels > .panel {
+  flex: 1 1 0;
+  min-width: 280px;
+  height: 100%;
+}
+
+.task-panels > .panel {
+  flex: 1 1 0;
+  min-width: 280px;
+}

@@ -5,4 +5,7 @@
 @import './cmps/tag-table.css';
 @import './cmps/task-table.css';
 @import './pages/admin.css';
+@import './pages/user.css';
+@import './cmps/ui.css';
+@import './cmps/modal.css';
 /* @import './basics/helpers.css'; */
