@@ -4,8 +4,6 @@ import cookieParser from 'cookie-parser';
 import cors, { CorsOptions } from 'cors';
 import express, { Express } from 'express';
 import { Server as HttpServer, createServer } from 'http';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
 import callRoutes from './api/call/call.routes.js';
 import suggestedTaskRoutes from './api/suggested-task/suggested-task.routes.js';
@@ -13,8 +11,6 @@ import tagRoutes from './api/tag/tag.routes.js';
 import taskRoutes from './api/task/task.routes.js';
 import { logger } from './services/logger.service.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const app: Express = express();
 const http: HttpServer = createServer(app);
