@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
-    "build": "npm run lint & tsc & exit /b 0",
-    "lint": "eslint . & exit /b 0",
+    "build": "npm run lint || true && tsc",
+    "lint": "eslint . || true",
     "lint:fix": "eslint . --fix",
     "tsc": "tsc"
   },
