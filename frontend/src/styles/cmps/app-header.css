@@ -5,36 +5,36 @@
   position: sticky;
   top: 0;
   z-index: 10;
-}
 
-.app-header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: var(--space-4);
-}
+  .app-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--space-4);
+  }
 
-.app-header-logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+  .app-header-logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
 
-.app-header-nav {
-  display: flex;
-  gap: var(--space-3);
-}
+  .app-header-nav {
+    display: flex;
+    gap: var(--space-3);
+  }
 
-.app-header-link {
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  transition: background 0.2s;
-}
+  .app-header-link {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
 
-.app-header-link:hover {
-  background: var(--color-border);
-}
+    &:hover {
+      background: var(--color-border);
+    }
 
-.app-header-link.active {
-  background: var(--color-primary);
-  color: #fff;
+    &.active {
+      background: var(--color-primary);
+      color: #fff;
+    }
+  }
 }

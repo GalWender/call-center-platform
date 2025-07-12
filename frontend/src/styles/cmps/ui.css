@@ -7,20 +7,20 @@
   padding: 1.5rem;
   background: #fff;
   min-height: 0;
-}
 
-.panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-2);
-}
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+  }
 
-.panel .panel-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0;
-  color: var(--color-text);
+  .panel-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--color-text);
+  }
 }
 
 .icon-button {
@@ -33,19 +33,19 @@
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   transition: background 0.15s;
-}
 
-.icon-button:hover {
-  background: var(--color-border);
-}
+  &:hover {
+    background: var(--color-border);
+  }
 
-.icon-button.primary {
-  background: var(--color-primary);
-  color: #fff;
-}
+  &.primary {
+    background: var(--color-primary);
+    color: #fff;
 
-.icon-button.primary:hover {
-  background: var(--color-primary-hover);
+    &:hover {
+      background: var(--color-primary-hover);
+    }
+  }
 }
 
 .material-symbols-rounded {
@@ -65,11 +65,11 @@
   padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
   cursor: pointer;
-}
 
-.tag-pill.selected {
-  background: var(--color-primary);
-  color: #fff;
+  &.selected {
+    background: var(--color-primary);
+    color: #fff;
+  }
 }
 
 .tag-selector {
@@ -92,10 +92,10 @@
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   transition: background 0.15s;
-}
 
-.task-item:hover {
-  background: var(--color-border);
+  &:hover {
+    background: var(--color-border);
+  }
 }
 
 .task-status-select {
@@ -154,10 +154,10 @@
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   transition: background 0.15s;
-}
 
-.suggested-task-item:hover {
-  background: var(--color-border);
+  &:hover {
+    background: var(--color-border);
+  }
 }
 
 .call-form,
