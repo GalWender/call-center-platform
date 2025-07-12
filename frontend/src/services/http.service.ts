@@ -2,7 +2,7 @@ import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { logger } from '../utils/logger.util';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/';
+const BASE_URL: string = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
 
 const axios = Axios.create({
   withCredentials: true,
@@ -30,7 +30,7 @@ async function ajax<T, D = unknown>(
 ): Promise<T> {
   try {
     const config: AxiosRequestConfig<D> = {
-      url: `${BASE_URL}${endpoint}`,
+      url: `${BASE_URL}/${endpoint.replace(/^\/+/, '')}`,
       method,
     };
 

@@ -7,13 +7,13 @@ export const AppHeader = () => {
         <h1 className="app-header-logo">Call Center</h1>
         <nav className="app-header-nav">
           <NavLink
-            to="/user/calls"
+            to="/user"
             className={({ isActive }) => (isActive ? 'app-header-link active' : 'app-header-link')}
           >
             User
           </NavLink>
           <NavLink
-            to="/admin/tags"
+            to="/admin"
             className={({ isActive }) => (isActive ? 'app-header-link active' : 'app-header-link')}
           >
             Admin
