@@ -29,6 +29,7 @@ const corsOptions: CorsOptions = {
   origin: allowedOrigins,
   credentials: true,
 };
+console.log('Allowed origins:', allowedOrigins);
 app.use(cors(corsOptions));
 
 app.use('/api/tag', tagRoutes);
