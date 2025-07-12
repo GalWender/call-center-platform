@@ -2,9 +2,9 @@ import 'dotenv/config';
 
 import cookieParser from 'cookie-parser';
 import cors, { CorsOptions } from 'cors';
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import { Server as HttpServer, createServer } from 'http';
-import { dirname, join, resolve } from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import callRoutes from './api/call/call.routes.js';
@@ -35,18 +35,11 @@ const corsOptions: CorsOptions = {
 };
 app.use(cors(corsOptions));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(resolve(__dirname, '..', 'public')));
-}
-
 app.use('/api/tag', tagRoutes);
 app.use('/api/suggested-task', suggestedTaskRoutes);
 app.use('/api/task', taskRoutes);
 app.use('/api/call', callRoutes);
 
-app.get('/**', (req: Request, res: Response) => {
-  res.sendFile(join(__dirname, '..', 'public', 'index.html'));
-});
 
 const port = process.env.PORT || 3030;
 http.listen(port, () => {
