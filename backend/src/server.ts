@@ -22,14 +22,21 @@ const http: HttpServer = createServer(app);
 app.use(cookieParser());
 app.use(express.json());
 
+const allowedOrigins: string[] = [];
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(...process.env.FRONTEND_URL.split(','));
+}
+
+allowedOrigins.push('http://127.0.0.1:5173', 'http://localhost:5173');
+
+const corsOptions: CorsOptions = {
+  origin: allowedOrigins,
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(resolve(__dirname, '..', 'public')));
-} else {
-  const corsOptions: CorsOptions = {
-    origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
-    credentials: true,
-  };
-  app.use(cors(corsOptions));
 }
 
 app.use('/api/tag', tagRoutes);

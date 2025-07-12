@@ -37,7 +37,7 @@ export async function add(data: NewTask): Promise<TaskDto> {
     const col = await getCollection<Task>(COLLECTION);
     const now = new Date().toISOString();
     const doc: Task = { ...data, createdAt: now, updatedAt: now };
-    const { insertedId } = await col.insertOne(doc as Task);
+    const { insertedId } = await col.insertOne(doc);
     return { ...doc, _id: insertedId.toHexString() };
   } catch (err) {
     logger.error('Failed to add task', err);

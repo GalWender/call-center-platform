@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { asyncHandler } from '../../utils/async-handler.util.js';
 
 import {
   addSuggestedTask,
@@ -10,10 +11,10 @@ import {
 
 const router = Router();
 
-router.get('/', getSuggestedTasks);
-router.get('/:id', getSuggestedTaskById);
-router.post('/', addSuggestedTask);
-router.put('/:id', updateSuggestedTask);
-router.delete('/:id', deleteSuggestedTask);
+router.get('/', asyncHandler(getSuggestedTasks));
+router.get('/:id', asyncHandler(getSuggestedTaskById));
+router.post('/', asyncHandler(addSuggestedTask));
+router.put('/:id', asyncHandler(updateSuggestedTask));
+router.delete('/:id', asyncHandler(deleteSuggestedTask));
 
 export default router;

@@ -37,7 +37,7 @@ export async function add(tag: NewTag): Promise<TagDto> {
     const collection = await getCollection<Tag>(TAG_COLLECTION);
     const now = new Date().toISOString();
     const doc: Tag = { ...tag, createdAt: now, updatedAt: now };
-    const { insertedId } = await collection.insertOne(doc as Tag);
+    const { insertedId } = await collection.insertOne(doc);
     return { ...doc, _id: insertedId.toHexString() };
   } catch (err) {
     logger.error('Failed to add tag', err);
