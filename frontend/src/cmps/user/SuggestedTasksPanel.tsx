@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SuggestedTasksPanel = ({ call }: Props) => {
-  const { data: suggested = [], isLoading } = useSuggestedTasks(call.tagIds);
+  const { data: suggested = [], isLoading } = useSuggestedTasks(call.tagIds ?? []);
   const updateCall = useUpdateCall();
 
   const assignTask = (title: string) => {

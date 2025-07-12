@@ -4,18 +4,28 @@ import { NewSuggestedTask } from '../../models/suggested-task.model.js';
 import { logger } from '../../services/logger.service.js';
 import * as suggestedTaskService from './suggested-task.service.js';
 
-export async function getSuggestedTasks(req: Request, res: Response): Promise<void> {
+export async function getSuggestedTasks(req: Request, res: Response): Promise<void | Response> {
   try {
     const { tagIds } = req.query;
-    let filterTagIds: string[] | undefined;
+
+    if (tagIds === undefined) {
+      const tasks = await suggestedTaskService.query();
+      return res.json(tasks);
+    }
+
+    let filterTagIds: string[] = [];
     if (typeof tagIds === 'string') {
       filterTagIds = tagIds.split(',').filter(Boolean);
     } else if (Array.isArray(tagIds)) {
-      filterTagIds = tagIds as string[];
+      filterTagIds = (tagIds as string[]).filter(Boolean);
+    }
+
+    if (filterTagIds.length === 0) {
+      return res.json([]);
     }
 
     const tasks = await suggestedTaskService.query({ tagIds: filterTagIds });
-    res.json(tasks);
+    return res.json(tasks);
   } catch (err) {
     logger.error('GET /api/suggested-task failed', err);
     res.status(500).json({ error: 'Failed to fetch suggested tasks' });

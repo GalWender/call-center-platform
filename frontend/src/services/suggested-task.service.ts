@@ -6,7 +6,7 @@ const BASE = 'suggested-task/';
 export const suggestedTaskService = {
   query(filter: { tagIds?: string[] } = {}): Promise<SuggestedTask[]> {
     const params = new URLSearchParams();
-    if (filter.tagIds?.length) {
+    if (filter.tagIds !== undefined) {
       params.set('tagIds', filter.tagIds.join(','));
     }
     const url = params.toString() ? `${BASE}?${params.toString()}` : BASE;
