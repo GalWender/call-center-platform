@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAddTag, useDeleteTag, useTags, useUpdateTag } from '../hooks/tag.hooks';
-import type { Tag } from '../types/tag';
+import { useAddTag, useDeleteTag, useTags, useUpdateTag } from '../../hooks/tag.hooks';
+import type { Tag } from '../../types/tag';
 
 export const TagTable = () => {
   const { data: tags = [], isLoading } = useTags();

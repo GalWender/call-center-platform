@@ -1,4 +1,4 @@
-import TagTable from '../TagTable';
+import TagTable from '../admin/TagTable';
 
 const TagPanel = () => {
   return (

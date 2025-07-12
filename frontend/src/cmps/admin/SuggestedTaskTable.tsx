@@ -4,9 +4,9 @@ import {
   useAddSuggestedTask,
   useDeleteSuggestedTask,
   useSuggestedTasks,
-} from '../hooks/suggested-task.hooks';
-import { useTags } from '../hooks/tag.hooks';
-import type { NewSuggestedTask } from '../types/suggestedTask';
+} from '../../hooks/suggested-task.hooks';
+import { useTags } from '../../hooks/tag.hooks';
+import type { NewSuggestedTask } from '../../types/suggestedTask';
 
 export const SuggestedTaskTable = () => {
   const { data: tasks = [], isLoading } = useSuggestedTasks();
@@ -18,7 +18,6 @@ export const SuggestedTaskTable = () => {
   const [newTitle, setNewTitle] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  // Get tags for selection
   const { data: tags = [] } = useTags();
 
   const onCreate = () => {

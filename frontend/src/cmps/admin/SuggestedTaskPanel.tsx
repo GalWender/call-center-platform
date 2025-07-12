@@ -1,4 +1,4 @@
-import SuggestedTaskTable from '../SuggestedTaskTable';
+import SuggestedTaskTable from '../admin/SuggestedTaskTable';
 
 const SuggestedTaskPanel = () => {
   return (
