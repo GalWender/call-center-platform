@@ -6,6 +6,7 @@ import { HashRouter as Router } from 'react-router-dom';
 import { ModalProvider } from './context/ModalContext';
 
 import App from './App.tsx';
+import './services/demo-data.service';
 import './styles/main.css';
 
 const queryClient = new QueryClient({
