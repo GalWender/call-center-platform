@@ -7,9 +7,9 @@ import { Server as HttpServer, createServer } from 'http';
 import { dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
+import callRoutes from './api/call/call.routes.js';
 import suggestedTaskRoutes from './api/suggested-task/suggested-task.routes.js';
 import tagRoutes from './api/tag/tag.routes.js';
-import callRoutes from './api/call/call.routes.js';
 import taskRoutes from './api/task/task.routes.js';
 import { logger } from './services/logger.service.js';
 
