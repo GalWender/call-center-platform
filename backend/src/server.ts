@@ -37,6 +37,10 @@ app.use('/api/suggested-task', suggestedTaskRoutes);
 app.use('/api/task', taskRoutes);
 app.use('/api/call', callRoutes);
 
+app.get('/health', (_req, res) => {
+  res.status(200).send('Server is awake and running!');
+});
+
 
 const port = process.env.PORT || 3030;
 http.listen(port, () => {
