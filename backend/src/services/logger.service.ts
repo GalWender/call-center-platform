@@ -22,9 +22,13 @@ function doLog(level: LogLevel, ...args: unknown[]) {
     return JSON.stringify(arg);
   });
 
-  const line = `${getTime()} - ${level} - ${strs.join(' | ')}\n`;
+  const line = `${getTime()} - ${level} - ${strs.join(' | ')}`;
 
-  fs.appendFile('./logs/backend.log', line, err => {
+  // Output to console for development visibility
+  console.log(line);
+
+  // Also write to file
+  fs.appendFile('./logs/backend.log', line + '\n', err => {
     if (err) console.error('LOGGER FILE WRITE ERROR:', err);
   });
 }
